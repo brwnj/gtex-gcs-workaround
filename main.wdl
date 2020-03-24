@@ -1,5 +1,6 @@
 task printreads {
     String sample_id
+    String project
     File alignments
     File alignments_index
     File fasta
@@ -11,7 +12,7 @@ task printreads {
     String image = "broadinstitute/gatk:4.1.4.0"
 
     command {
-        gatk PrintReads --reference ${fasta} --input ${alignments} --intervals ${intervals} --output `pwd`/${sample_id}.bam
+        gatk PrintReads --gcs-project-for-requester-pays ${project} --reference ${fasta} --input ${alignments} --intervals ${intervals} --output `pwd`/${sample_id}.bam
     }
     runtime {
         memory: memory + "GB"
@@ -60,7 +61,7 @@ task tar_czf {
 
 
 workflow gtex_gcs_workaround {
-    # three column TSV: sample_id, cram/bam, cram/bam_index
+    String project
     File manifest
     Array[Array[String]] sample_data = read_tsv(manifest)
     File fasta
@@ -74,6 +75,7 @@ workflow gtex_gcs_workaround {
         call printreads {
             input:
                 sample_id = sample[0],
+                project = project,
                 alignments = sample[1],
                 alignments_index = sample[2],
                 fasta = fasta,

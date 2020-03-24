@@ -6,6 +6,7 @@
   "gtex_gcs_workaround.manifest": "File",
   "gtex_gcs_workaround.memory": "Int (optional, default = 8)",
   "gtex_gcs_workaround.tar_czf.image": "String (optional, default = \"brentp/somalier:v0.2.9\")",
-  "gtex_gcs_workaround.fasta_index": "File"
+  "gtex_gcs_workaround.fasta_index": "File",
+  "gtex_gcs_workaround.project": "String"
 }
 
