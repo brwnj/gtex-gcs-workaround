@@ -1,0 +1,11 @@
+{
+  "gtex_gcs_workaround.printreads.image": "String (optional, default = \"broadinstitute/gatk:4.1.4.0\")",
+  "gtex_gcs_workaround.fasta": "File",
+  "gtex_gcs_workaround.intervals": "File",
+  "gtex_gcs_workaround.disk_size": "Int (optional, default = 100)",
+  "gtex_gcs_workaround.manifest": "File",
+  "gtex_gcs_workaround.memory": "Int (optional, default = 8)",
+  "gtex_gcs_workaround.tar_czf.image": "String (optional, default = \"brentp/somalier:v0.2.9\")",
+  "gtex_gcs_workaround.fasta_index": "File"
+}
+
