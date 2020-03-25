@@ -5,6 +5,7 @@ task printreads {
     File alignments_index
     File fasta
     File fasta_index
+    File fasta_dict
     File intervals
 
     Int disk_size = 100
@@ -66,6 +67,7 @@ workflow gtex_gcs_workaround {
     Array[Array[String]] sample_data = read_tsv(manifest)
     File fasta
     File fasta_index
+    File fasta_dict
     File intervals
 
     Int disk_size = 100
@@ -80,6 +82,7 @@ workflow gtex_gcs_workaround {
                 alignments_index = sample[2],
                 fasta = fasta,
                 fasta_index = fasta_index,
+                fasta_dict = fasta_dict,
                 intervals = intervals,
                 disk_size = disk_size,
                 memory = memory
